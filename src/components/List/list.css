@@ -51,10 +51,8 @@
   justify-content: flex-start;
   font-size: 20px;
 }
-.right p a{
-  display: block;
+.right p button{
   color: #BDBDBD;
-  text-decoration: none;
 }
 .right p span{
   font-size: 16px;

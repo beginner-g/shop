@@ -15,9 +15,9 @@ class List extends Component {
         </div>
         <div className="right">
           <p>
-            <a href="javascript:;" className="sub" onClick={()=>handleSub('-',t)}>-</a>
+            <button className="sub" onClick={()=>handleSub('-',t)}>-</button>
             <span>{t.num}</span>
-          <a href="javascript:;" className="add" onClick={()=>handleSub('+',t)}>+</a>
+            <button className="add" onClick={()=>handleSub('+',t)}>+</button>
           </p>
         </div>
       </div>
