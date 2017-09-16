@@ -1,0 +1,70 @@
+.list{
+  background-color: #F06292;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tolato{
+  padding-top: 50px;
+  width: 200px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  line-height: 40px;
+}
+.goods-list{
+  margin-top: 20px;
+  width: 380px;
+  height: 300px;
+  background-color: #fff;
+  overflow: scroll;
+}
+.shop-goods{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.left{
+  display: flex;
+  justify-content: flex-start;
+}
+.left img{
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+.left p span{
+  color: #EF5350;
+  font-size: 16px;
+  display: block;
+  line-height: 26px;
+}
+.left .price{
+  color: #BDBDBD;
+}
+.right p{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+.right p a{
+  display: block;
+  color: #BDBDBD;
+  text-decoration: none;
+}
+.right p span{
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  width: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  background-color: #F06292;
+  -ms-text-align-last: center;
+  text-align-last: center;
+  margin:0 10px;
+}

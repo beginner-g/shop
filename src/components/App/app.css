@@ -1,0 +1,19 @@
+.app{
+  display: flex;
+  justify-content: center;
+}
+.home{
+  display: flex;
+  width: 800px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.goods-wrap{
+  width: 800px;
+  margin-top: 10px;
+  height: 300px;
+}
+.list-wrap{
+  width: 400px;
+  height: 500px;
+}

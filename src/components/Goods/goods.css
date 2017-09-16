@@ -1,0 +1,24 @@
+.goods{
+  display: flex;
+  justify-content: space-between;
+}
+.good-img{
+  width: 200px;
+}
+.img{
+  width: 200px;
+  height: 200px;
+}
+.buy{
+  text-align: center;
+  margin-top: 10px;
+  line-height: 40px;
+  background-color: #FF4081;
+  color: #fff;
+  font-weight: 500;
+  font-size: 30px;
+  cursor: pointer;
+}
+.active{
+  background-color: #A1887F;
+}
