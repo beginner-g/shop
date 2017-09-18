@@ -15,16 +15,18 @@ class List extends Component {
         </div>
         <div className="right">
           <p>
-            <button className="sub" onClick={()=>handleSub('-',t)}>-</button>
+            <button className="sub" onClick={()=>handleSub('-',t.id)}>-</button>
             <span>{t.num}</span>
-            <button className="add" onClick={()=>handleSub('+',t)}>+</button>
+          <button className="add" onClick={()=>handleSub('+',t.id)}>+</button>
           </p>
         </div>
       </div>
     ))
+    const {tolato}=this.props
+    console.log(tolato)
     return(
       <div className="list">
-        <h2 className='tolato'>元</h2>
+        <h2 className='tolato'>{`${tolato ? tolato : '0.00'} 元`}</h2>
         <div className="goods-list">
           {showList}
         </div>

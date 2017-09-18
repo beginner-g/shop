@@ -8,24 +8,24 @@ class Home extends Component {
       id:1,
       good:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=490374653,3763965140&fm=27&gp=0.jpg',
       title:'脆皮朱古力蛋糕',
-      price:72,
-      num:0,
+      price:12,
+      num:1,
       buy:false
     },
       {
       id:2,
       good:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3463154630,851888036&fm=27&gp=0.jpg',
       title:'云石芝士蛋糕',
-      price:89,
-      num:0,
+      price:12,
+      num:1,
       buy:false
     },
       {
       id:3,
       good:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3419714750,517058921&fm=27&gp=0.jpg',
       title:'绿茶布朗尼蛋糕',
-      price:56,
-      num:0,
+      price:12,
+      num:1,
       buy:false
     },
       {
@@ -33,11 +33,11 @@ class Home extends Component {
       good:'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2640805390,438696420&fm=200&gp=0.jpg',
       title:'黑森林蛋糕',
       price:22,
-      num:0,
+      num:1,
       buy:false
     }
   ],
-    tolato:0
+    tolato:''
   }
   complete=(t)=>{
     if(t){
@@ -50,39 +50,49 @@ class Home extends Component {
     console.log(id)
     let newgoods = this.state.goods
       newgoods.find(re => re.id===id).buy=true
+      const fifterbuy=newgoods.filter(t=>t.buy==true)
       this.setState({
-        goods:newgoods
+        goods:newgoods,
+        tolato:this.changetotal(fifterbuy)
     })
   }
-  handleSub=(val,t)=>{
+  handleSub=(val,ind)=>{
     const newgoods1=this.state.goods
     console.log(val)
-    console.log(t)
+    console.log(ind)
     if(val==='-'){
         newgoods1.map(t=>{
-          if(t===t.id&&t.num!==0){
-            return {...t,num:t.num-1}
+          if(ind===t.id&&t.num!==0){
+            return t.num=t.num-1
           }
           return t
         })
         this.setState({
-          goods:newgoods1
+          goods:newgoods1,
+          tolato:this.changetotal(newgoods1)
         })
     }
     if(val==='+'){
       newgoods1.map(t=>{
-        if(t===t.id){
-          return {...t,num:t.num+1}
+        if(ind===t.id){
+          t.num=t.num+1
         }
         return t
       })
       this.setState({
-        goods:newgoods1
+        goods:newgoods1,
+        tolato:this.changetotal(newgoods1)
       })
     }
   }
+  changetotal=(newgoods1)=>{
+    const total = newgoods1.reduce((sum, t) => {
+      return sum + t.price*t.num
+    }, 0)
+    return total
+  }
   render(){
-    const {goods}=this.state
+    const {goods,tolato}=this.state
     return(
       <div className="home">
         <div className="goods-wrap">
@@ -96,7 +106,8 @@ class Home extends Component {
         <List
           goods={goods}
           handleSub={this.handleSub}
-          total={this.total}
+          tolato={tolato}
+          changetotal={this.changetotal}
         />
         </div>
       </div>
