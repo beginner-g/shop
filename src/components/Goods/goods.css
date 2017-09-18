@@ -1,9 +1,11 @@
 .goods{
   display: flex;
   justify-content: space-between;
+  overflow: scroll;
 }
 .good-img{
   width: 200px;
+  margin-right: 10px;
 }
 .img{
   width: 200px;
