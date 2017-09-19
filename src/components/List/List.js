@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import './list.css'
 class List extends Component {
+  changetotal=(goods)=>{
+    const total = goods.reduce((sum, t) => {
+      return sum + t.price*t.num
+    }, 0)
+    return total
+  }
   render(){
-    const {goods,handleSub}=this.props
+    const {goods,handleSub,changetotal}=this.props
+    const total=this.changetotal(goods)
     const goodsList=goods.filter(t=>t.buy===true)
     const showList=goodsList.map(t=>(
       <div key={t.id} className="shop-goods">
@@ -22,11 +29,9 @@ class List extends Component {
         </div>
       </div>
     ))
-    const {tolato}=this.props
-    console.log(tolato)
     return(
       <div className="list">
-        <h2 className='tolato'>{`${tolato ? tolato : '0.00'} 元`}</h2>
+        <h2 className='tolato'>{`${total ? total : '0.00'} 元`} {()=>this.changetotal}</h2>
         <div className="goods-list">
           {showList}
         </div>

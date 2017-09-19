@@ -9,7 +9,7 @@ class Home extends Component {
       good:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=490374653,3763965140&fm=27&gp=0.jpg',
       title:'脆皮朱古力蛋糕',
       price:12,
-      num:1,
+      num:0,
       buy:false
     },
       {
@@ -17,7 +17,7 @@ class Home extends Component {
       good:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3463154630,851888036&fm=27&gp=0.jpg',
       title:'云石芝士蛋糕',
       price:12,
-      num:1,
+      num:0,
       buy:false
     },
       {
@@ -25,7 +25,7 @@ class Home extends Component {
       good:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3419714750,517058921&fm=27&gp=0.jpg',
       title:'绿茶布朗尼蛋糕',
       price:12,
-      num:1,
+      num:0,
       buy:false
     },
       {
@@ -33,11 +33,10 @@ class Home extends Component {
       good:'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2640805390,438696420&fm=200&gp=0.jpg',
       title:'黑森林蛋糕',
       price:22,
-      num:1,
+      num:0,
       buy:false
     }
   ],
-    tolato:''
   }
   complete=(t)=>{
     if(t){
@@ -50,10 +49,8 @@ class Home extends Component {
     console.log(id)
     let newgoods = this.state.goods
       newgoods.find(re => re.id===id).buy=true
-      const fifterbuy=newgoods.filter(t=>t.buy==true)
       this.setState({
-        goods:newgoods,
-        tolato:this.changetotal(fifterbuy)
+        goods:newgoods
     })
   }
   handleSub=(val,ind)=>{
@@ -68,8 +65,7 @@ class Home extends Component {
           return t
         })
         this.setState({
-          goods:newgoods1,
-          tolato:this.changetotal(newgoods1)
+          goods:newgoods1
         })
     }
     if(val==='+'){
@@ -80,17 +76,11 @@ class Home extends Component {
         return t
       })
       this.setState({
-        goods:newgoods1,
-        tolato:this.changetotal(newgoods1)
+        goods:newgoods1
       })
     }
   }
-  changetotal=(newgoods1)=>{
-    const total = newgoods1.reduce((sum, t) => {
-      return sum + t.price*t.num
-    }, 0)
-    return total
-  }
+
   render(){
     const {goods,tolato}=this.state
     return(
@@ -106,8 +96,6 @@ class Home extends Component {
         <List
           goods={goods}
           handleSub={this.handleSub}
-          tolato={tolato}
-          changetotal={this.changetotal}
         />
         </div>
       </div>
